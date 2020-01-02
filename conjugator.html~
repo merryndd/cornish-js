@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Frasednow kernowek</title>
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,800" rel="stylesheet">
+<link href="main.css" rel="stylesheet">
+</head>
+<body>
+
+<form>
+
+  <input type="radio" name="person" value="1sg" checked> I 
+  <input type="radio" name="person" value="2sg"> you (singular)   <input type="radio" name="person" value="3sgm"> he  
+  <input type="radio" name="person" value="3sgf"> she<br/>
+  <input type="radio" name="person" value="1pl"> we
+  <input type="radio" name="person" value="2pl"> you (plural)
+  <input type="radio" name="person" value="3pl"> they
+  <!--<br><input type="radio" name="person" value="all"> Show all-->
+  <br><br>
+  <select name="tensemood" id="tensemood">
+    <option value="present">… start(s)/(is/are) starting</option>
+    <option value="past">… started</option>
+    <option value="imperfect">… was/were starting</option>
+    <option value="perfect">… has/have started</option>
+    <option value="pluperfect">… had started</option>
+    <option value="emphaticpast">… did start</option>
+    <option value="perfectcontinuous">… has/have been starting</option>
+    <option value="future">… will start</option>
+    <option value="futureperfect">… will have started</option>
+    <option value="futurecontinuous">… will be starting</option>
+    <option value="conditional">… would start</option>
+    <option value="pastconditional">… would have started</option>
+    <option value="could">… could start</option>
+    <option value="should">… should start</option>
+    <option value="ought">… ought to start</option>
+    <option value="must">… must start</option>
+    <option value="futuremust">… will have to start</option>
+    <option value="conditionalmust">… would have to start</option>
+    <option value="presentquestion">Do(es) … start?</option>
+    <option value="pastquestion">Did … start?</option>
+  </select>
+  <br>
+<br>
+  <button type="button" onclick="GetIt()">Submit</button>
+</form> 
+<p id="translo"/>
+
+<script>
+function GetIt(){
+var e = document.getElementById("tensemood");
+var tensemoodValue = e.options[e.selectedIndex].value;
+var ele = document.getElementsByName('person'); 
+              for(i = 0; i < ele.length; i++) { 
+                if(ele[i].checked) 
+                var personValue = ele[i].value;}
+var combine = personValue+tensemoodValue
+var dicto = {
+    "allofthem":[
+        {"english":"1sgpresent","cornish":"theroma o talla",},
+        {"english":"2sgpresent","cornish":"thesta o talla",},
+        {"english":"3sgmpresent","cornish":"ma va o talla",},
+        {"english":"3sgfpresent","cornish":"ma hei o talla",},
+        {"english":"1plpresent","cornish":"thero nei o talla",},
+        {"english":"2plpresent","cornish":"thero whei o talla",},
+        {"english":"3plpresent","cornish":"mon’jei o talla",},
+        {"english":"1sgpast","cornish":"my a dhallas",},
+        {"english":"2sgpast","cornish":"che a dhallas",},
+        {"english":"3sgmpast","cornish":"ev a dhallas",},
+        {"english":"3sgfpast","cornish":"hei a dhallas",},
+        {"english":"1plpast","cornish":"nei a dhallas",},
+        {"english":"2plpast","cornish":"whei a dhallas",},
+        {"english":"3plpast","cornish":"anjei a dhallas",},
+        {"english":"1sgimperfect","cornish":"thera vy o talla",},
+        {"english":"2sgimperfect","cornish":"thera che o talla",},
+        {"english":"3sgmimperfect","cornish":"thera va o talla",},
+        {"english":"3sgfimperfect","cornish":"thera hei o talla",},
+        {"english":"1plimperfect","cornish":"thera nei o talla",},
+        {"english":"2plimperfect","cornish":"thera whei o talla",},
+        {"english":"3plimperfect","cornish":"thera anjei o talla",},
+        {"english":"1sgperfect","cornish":"ma dallys genam",},
+        {"english":"2sgperfect","cornish":"ma dallys genes",},
+        {"english":"3sgmperfect","cornish":"ma dallys ganjo",},
+        {"english":"3sgfperfect","cornish":"ma dallys genji",},
+        {"english":"1plperfect","cornish":"ma dallys gena nei",},
+        {"english":"2plperfect","cornish":"ma dallys gena whei",},
+        {"english":"3plperfect","cornish":"ma dallys ganjans",},
+        {"english":"1sgpluperfect","cornish":"tho dallys genam",},
+        {"english":"2sgpluperfect","cornish":"tho dallys genes",},
+        {"english":"3sgmpluperfect","cornish":"tho dallys ganjo",},
+        {"english":"3sgfpluperfect","cornish":"tho dallys genji",},
+        {"english":"1plpluperfect","cornish":"tho dallys gena nei",},
+        {"english":"2plpluperfect","cornish":"tho dallys gena whei",},
+        {"english":"3plpluperfect","cornish":"tho dallys ganjans",},
+        {"english":"1sgemphaticpast","cornish":"my a wrug dalla",},
+        {"english":"2sgemphaticpast","cornish":"che a wrug dalla",},
+        {"english":"3sgmemphaticpast","cornish":"ev a wrug dalla",},
+        {"english":"3sgfemphaticpast","cornish":"hei a wrug dalla",},
+        {"english":"1plemphaticpast","cornish":"nei a wrug dalla",},
+        {"english":"2plemphaticpast","cornish":"whei a wrug dalla",},
+        {"english":"3plemphaticpast","cornish":"anjei a wrug dalla",},
+        {"english":"1sgperfectcontinuous","cornish":"my a veu o talla",},
+        {"english":"2sgperfectcontinuous","cornish":"che a veu o talla",},
+        {"english":"3sgmperfectcontinuous","cornish":"ev a veu o talla",},
+        {"english":"3sgfperfectcontinuous","cornish":"hei a veu o talla",},
+        {"english":"1plperfectcontinuous","cornish":"nei a veu o talla",},
+        {"english":"2plperfectcontinuous","cornish":"whei a veu o talla",},
+        {"english":"3plperfectcontinuous","cornish":"anjei a veu o talla",},
+        {"english":"1sgfuture","cornish":"my a vedn dalla",},
+        {"english":"2sgfuture","cornish":"che a vedn dalla",},
+        {"english":"3sgmfuture","cornish":"ev a vedn dalla",},
+        {"english":"3sgffuture","cornish":"hei a vedn dalla",},
+        {"english":"1plfuture","cornish":"nei a vedn dalla",},
+        {"english":"2plfuture","cornish":"whei a vedn dalla",},
+        {"english":"3plfuture","cornish":"anjei a vedn dalla",},
+        {"english":"1sgfutureperfect","cornish":"a vedh dallys genam",},
+        {"english":"2sgfutureperfect","cornish":"a vedh dallys genes",},
+        {"english":"3sgmfutureperfect","cornish":"a vedh dallys ganjo",},
+        {"english":"3sgffutureperfect","cornish":"a vedh dallys genji",},
+        {"english":"1plfutureperfect","cornish":"a vedh dallys gena nei",},
+        {"english":"2plfutureperfect","cornish":"a vedh dallys gena whei",},
+        {"english":"3plfutureperfect","cornish":"a vedh dallys ganjans",},
+        {"english":"1sgfuturecontinuous","cornish":"my a vedh o talla",},
+        {"english":"2sgfuturecontinuous","cornish":"che a vedh o talla",},
+        {"english":"3sgmfuturecontinuous","cornish":"ev a vedh o talla",},
+        {"english":"3sgffuturecontinuous","cornish":"hei a vedh o talla",},
+        {"english":"1plfuturecontinuous","cornish":"nei a vedh o talla",},
+        {"english":"2plfuturecontinuous","cornish":"whei a vedh o talla",},
+        {"english":"3plfuturecontinuous","cornish":"anjei a vedh o talla",},
+        {"english":"1sgconditional","cornish":"my a venja dalla",},
+        {"english":"2sgconditional","cornish":"che a venja dalla",},
+        {"english":"3sgmconditional","cornish":"ev a venja dalla",},
+        {"english":"3sgfconditional","cornish":"hei a venja dalla",},
+        {"english":"1plconditional","cornish":"nei a venja dalla",},
+        {"english":"2plconditional","cornish":"whei a venja dalla",},
+        {"english":"3plconditional","cornish":"anjei a venja dalla",},
+        {"english":"1sgpastconditional","cornish":"a via dallys genam",},
+        {"english":"2sgpastconditional","cornish":"a via dallys genes",},
+        {"english":"3sgmpastconditional","cornish":"a via dallys ganjo",},
+        {"english":"3sgfpastconditional","cornish":"a via dallys genji",},
+        {"english":"1plpastconditional","cornish":"a via dallys gena nei",},
+        {"english":"2plpastconditional","cornish":"a via dallys gena whei",},
+        {"english":"3plpastconditional","cornish":"a via dallys ganjans",},
+        {"english":"1sgcould","cornish":"my a alja dalla",},
+        {"english":"2sgcould","cornish":"che a alja dalla",},
+        {"english":"3sgmcould","cornish":"ev a alja dalla",},
+        {"english":"3sgfcould","cornish":"hei a alja dalla",},
+        {"english":"1plcould","cornish":"nei a alja dalla",},
+        {"english":"2plcould","cornish":"whei a alja dalla",},
+        {"english":"3plcould","cornish":"anjei a alja dalla",},
+        {"english":"1sgshould","cornish":"my a dalvia dalla",},
+        {"english":"2sgshould","cornish":"che a dalvia dalla",},
+        {"english":"3sgmshould","cornish":"ev a dalvia dalla",},
+        {"english":"3sgfshould","cornish":"hei a dalvia dalla",},
+        {"english":"1plshould","cornish":"nei a dalvia dalla",},
+        {"english":"2plshould","cornish":"whei a dalvia dalla",},
+        {"english":"3plshould","cornish":"anjei a dalvia dalla",},
+        {"english":"1sgought","cornish":"my a dal dalla",},
+        {"english":"2sgought","cornish":"che a dal dalla",},
+        {"english":"3sgmought","cornish":"ev a dal dalla",},
+        {"english":"3sgfought","cornish":"hei a dal dalla",},
+        {"english":"1plought","cornish":"nei a dal dalla",},
+        {"english":"2plought","cornish":"whei a dal dalla",},
+        {"english":"3plought","cornish":"anjei a dal dalla",},
+        {"english":"1sgmust","cornish":"res ew dhebm dalla",},
+        {"english":"2sgmust","cornish":"res ew dhis dalla",},
+        {"english":"3sgmmust","cornish":"res ew dhodho dalla",},
+        {"english":"3sgfmust","cornish":"res ew dhedhi dalla",},
+        {"english":"1plmust","cornish":"res ew dhe nei dalla",},
+        {"english":"2plmust","cornish":"res ew dhe whei dalla",},
+        {"english":"3plmust","cornish":"res ew dhodhans dalla",},
+        {"english":"1sgfuturemust","cornish":"my a dalvedh dalla",},
+        {"english":"2sgfuturemust","cornish":"che a dalvedh dalla",},
+        {"english":"3sgmfuturemust","cornish":"ev a dalvedh dalla",},
+        {"english":"3sgffuturemust","cornish":"hei a dalvedh dalla",},
+        {"english":"1plfuturemust","cornish":"nei a dalvedh dalla",},
+        {"english":"2plfuturemust","cornish":"whei a dalvedh dalla",},
+        {"english":"3plfuturemust","cornish":"anjei a dalvedh dalla",},
+        {"english":"1sgconditionalmust","cornish":"my a goffia dalla",},
+        {"english":"2sgconditionalmust","cornish":"che a goffia dalla",},
+        {"english":"3sgmconditionalmust","cornish":"ev a goffia dalla",},
+        {"english":"3sgfconditionalmust","cornish":"hei a goffia dalla",},
+        {"english":"1plconditionalmust","cornish":"nei a goffia dalla",},
+        {"english":"2plconditionalmust","cornish":"whei a goffia dalla",},
+        {"english":"3plconditionalmust","cornish":"anjei a goffia dalla",},
+        {"english":"1sgpresentquestion","cornish":"eroma o talla?",},
+        {"english":"2sgpresentquestion","cornish":"esta o talla?",},
+        {"english":"3sgmpresentquestion","cornish":"ujy va o talla?",},
+        {"english":"3sgfpresentquestion","cornish":"ujy hei o talla?",},
+        {"english":"1plpresentquestion","cornish":"ero nei o talla?",},
+        {"english":"2plpresentquestion","cornish":"ero whei o talla?",},
+        {"english":"3plpresentquestion","cornish":"ujy anjei o talla?",},
+        {"english":"1sgpastquestion","cornish":"a wruga vy dalla?",},
+        {"english":"2sgpastquestion","cornish":"a wrussta dalla?",},
+        {"english":"3sgmpastquestion","cornish":"a wrug ev dalla?",},
+        {"english":"3sgfpastquestion","cornish":"a wrug hei dalla?",},
+        {"english":"1plpastquestion","cornish":"a wruga nei dalla?",},
+        {"english":"2plpastquestion","cornish":"a wruga whei dalla?",},
+        {"english":"3plpastquestion","cornish":"a wrug anjei dalla?",},
+],
+};
+
+var translation = {};
+dicto.allofthem.forEach(function (item) {
+    translation[item.english] = item.cornish;});
+var theenglish = translation[combine]
+document.getElementById("translo").innerHTML = theenglish;
+}
+
+</script>
+
+</body>
+</html>

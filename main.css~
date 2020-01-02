@@ -1,0 +1,25 @@
+body {
+    width:60%;
+    margin: 40px auto 0 auto;
+    padding: 0 20px 20px 20px;
+    font-family: 'Raleway', sans-serif;
+    border: 2px solid black;
+    }
+#thesentences {
+    display:none;
+    }
+.trans {
+    display:none;
+    font-style:italic;
+    }
+#inputs {
+    font-weight:bold;
+    }
+.prose {
+    font-weight:bold;
+    }
+button {
+    color:white;
+    background-color:gray;
+    font-family: 'Raleway', sans-serif;
+    }
